@@ -1,0 +1,83 @@
+%\VignetteIndexEntry{mAPKLData: example data for the mAPKL package}
+%\VignetteKeywords{Affymetrix, mAPKL}
+%\VignettePackage{mAPKLData}
+% \VignetteEngine{knitr::knitr}
+
+\documentclass[12pt]{article}
+
+<<style-knitr, eval=TRUE, echo=FALSE, results="asis">>=
+BiocStyle::latex()
+@
+
+\usepackage{microtype}
+\usepackage{amsmath}
+
+
+\begin{document}
+
+<<setup, include=FALSE>>=
+library(knitr)
+@ 
+
+\title{\Biocpkg{mAPKLData} - Example data for the mAPKL package}
+\author{Argiris Sakellariou$^{1,2}$\\[1cm]
+\small{$^1$ Biomedical Informatics Unit, Biomedical Research Foundation of the 
+Academy of Athens, Athens, Greece}\\[0cm]
+\small{$^2$ Department of Informatics and Telecommunications, National and 
+Kapodistrian Univ. of Athens, Athens, Greece}\\[0cm]
+\texttt{\small{a.sakellariou@gonkhosp.gr}}
+}
+
+\maketitle
+\pagenumbering{roman}
+
+\renewcommand{\baselinestretch}{1.2}
+\tableofcontents
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\section{Introduction}\label{sec:intro} 
+\noindent This package provides a dataset \href{http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE5764}{GSE5764} 
+available at the NCBI Gene Expression Omnibus to demonstarate the functionality 
+within the \Biocpkg{mAPKL} package throught a series of examples. 
+In particular, the gene expression data come from a breast cancer study 
+published by Turashvili et al. in 2007, aiming at identifying gene expression 
+profiles of invasive ductal carcinomas (IDC) and invasive lobular carcinomas 
+(ILC) in relation to normal breast epithelial cells. The study includes 30 
+samples (10 normal ductal and 10 lobular cells, 5 IDC and 5 ILC tissue samples). 
+Samples were analysed upon Affymetrix U133 Plus 2.0 Arrays. We employed the 
+expression values as provided by the study, called "rawdata" values in the mAPKL 
+analysis (see \emph{preprocess} function).
+
+\section{Loading the data}\label{sec:load} 
+
+The example dataset can be loaded using the \Rfunction{data} function and it is 
+available through an eSet class object the \emph{mAPKLData} object. The user may 
+either proceed with that object or create separate training and validation sets 
+with the aid of the \emph{sampling} function of the \Biocpkg{mAPKL} package.
+<<message=FALSE>>==
+library(mAPKLData)
+data(mAPKLData)
+mAPKLData
+pData(mAPKLData)
+experimentData(mAPKLData)
+@
+
+\section{Session info}
+<<tidy=TRUE,tidy.opts=list(width.cutoff=60)>>=
+sessionInfo()
+@
+
+\section{Reference}
+\begin{list}{}{\itemindent=-1.0cm}
+
+\item Turashvili G, Bouchal J, Baumforth K, Wei W et al. "Novel markers for 
+differentiation of lobular and ductal invasive breast carcinomas by laser 
+microdissection and microarray analysis." BMC Cancer 27 (2007):7:55.
+
+\item http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE5764
+
+\end{list}
+
+\end{document}
