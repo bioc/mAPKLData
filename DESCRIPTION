@@ -1,7 +1,7 @@
 Package: mAPKLData
 Type: Package
 Title: Gene expression data for testing of the package mAPKL.
-Version: 1.16.0
+Version: 1.17.0
 Date: 2014-12-14
 Description: Gene expression data from a breast cancer study published
         by Turashvili et al. in 2007, provided as an eSet.
